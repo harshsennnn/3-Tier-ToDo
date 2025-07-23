@@ -1,10 +1,11 @@
-import React,{useState} from 'react'
+import React,{useState} from "react";
 
 function TodoInput(props) {
   const [inputText, setInputText] = useState('');
   return (
     <div>
-      <input type="text" placeholder='Enter your Task' onChange={(e) => setInputText(e.target.value)}/>
+      <input type="text" placeholder='Enter your Task' onChange={(e) => setInputText(e.target.value)}
+      value={inputText}/>
       <button onClick={()=>{props.addList(inputText)
         setInputText('');
       }}>+</button>
