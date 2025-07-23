@@ -6,12 +6,16 @@ import Button from './components/Button'
 
 function App() {
   return (
-    <div>
+    <div className='container'>
       <Header />
+      <ToDoItem />
+      <ToDoItem />
+      <ToDoItem />
+      <ToDoItem />
       <ToDoItem />
       <Button />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

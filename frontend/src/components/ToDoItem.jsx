@@ -2,10 +2,12 @@ import React from "react";
 
 function ToDoItem() {
   return (
-    <li>
-      <input type="checkbox" />
-      <p>Eat</p>
-      <p>...</p>
+    <li className="Item">
+      <span>
+        <input type="checkbox" className="underline"/>
+        <span>Eat</span>
+        </span>
+        <p>...</p>
     </li>
   );
 }
