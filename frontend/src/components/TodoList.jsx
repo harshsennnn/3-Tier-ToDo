@@ -3,7 +3,10 @@ import React from 'react'
 function TodoList(props) {
   return (
     <li>
- Item1
+        {props.item}
+ <span>
+    <i class="fa-solid fa-trash"></i>
+ </span>
     </li>
   )
 }

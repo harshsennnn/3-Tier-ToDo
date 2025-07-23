@@ -13,7 +13,11 @@ function App() {
     <>
       <div className='background-white h-screen flex items-center justify-center'>
         <TodoInput addList={addList}/>
-        
+        <h1>ToDo App</h1>
+        <hr />
+        {listTodo.map((listItem, i) =>{
+          return (<TodoList key={i} item={listItem}/>)
+        } )}
       </div>
     </>
   )
