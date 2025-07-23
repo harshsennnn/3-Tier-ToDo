@@ -8,11 +8,11 @@ function App() {
   return (
     <div className='container'>
       <Header />
-      <ToDoItem />
-      <ToDoItem />
-      <ToDoItem />
-      <ToDoItem />
-      <ToDoItem />
+      <ToDoItem text="Eat" />
+      <ToDoItem text="Sleep" />
+      <ToDoItem text="Code" />
+      <ToDoItem text="Repeat" />
+      <ToDoItem text="Exercise" />
       <Button />
     </div>
   );
