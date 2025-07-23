@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  
+  # frontend:
+  #   build: ./frontend
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./html:/usr/share/nginx/html
+
+  # backend:
+  #   build: ./backend
+  #   ports:
+  #     - "5000:5000"
+  #   environment:
+  #     - DATABASE_URL=mysql://root:example@db/mydb
+  #   depends_on:
+  #     - db
+  db:
+    image: mysql:latest
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - webnet
+
+volumes:
+  db_data:
+
+networks:
+  webnet:
+    driver: bridge
