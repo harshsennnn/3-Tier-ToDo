@@ -8,6 +8,11 @@ function App() {
   let addList = (inputText) => {
     setListTodo([...listTodo, inputText]);
   }
+  const deleteListItem = (key) => {
+    let newList = listTodo = [...listTodo];
+    newList.splice(key, 1);
+    setListTodo(...newList);
+  }
 
   return (
     <>
@@ -16,7 +21,7 @@ function App() {
         <h1>ToDo App</h1>
         <hr />
         {listTodo.map((listItem, i) =>{
-          return (<TodoList key={i} item={listItem}/>)
+          return (<TodoList key={i} item={listItem} deleteItem={deleteListItem} index={i}/>)
         } )}
       </div>
     </>

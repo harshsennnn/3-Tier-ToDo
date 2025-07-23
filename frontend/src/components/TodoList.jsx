@@ -5,7 +5,9 @@ function TodoList(props) {
     <li>
         {props.item}
  <span>
-    <i class="fa-solid fa-trash"></i>
+    <i class="fa-solid fa-trash" onClick={e=>{
+        props.deleteItem(props.index)
+    }}></i>
  </span>
     </li>
   )
