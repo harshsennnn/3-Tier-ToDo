@@ -12,7 +12,7 @@ function App() {
       <ToDoItem text="Sleep" />
       <ToDoItem text="Code" />
       <ToDoItem text="Repeat" />
-      <ToDoItem text="Exercise" />
+      <ToDoItem text="Exercise " />
       <Button />
     </div>
   );
