@@ -29,7 +29,7 @@ function App() {
       body: JSON.stringify({ title: task }),
     });
 
-    setTask("");      
+    setTask("");     
     fetchTasks();     
   };
 
@@ -43,7 +43,9 @@ function App() {
         placeholder="Enter your task"
         className="input"
       />
-      <Button onClick={addTask} />
+       <button className="Button" onClick={addTask}>
+      Add Task
+    </button>
       <ToDoList tasks={tasks} />
     </div>
   );
