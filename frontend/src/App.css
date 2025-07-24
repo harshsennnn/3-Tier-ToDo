@@ -11,6 +11,12 @@ body {
     align-items: center;
 }
 
+.input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
 .container {
     width: 300px;
     max-width: 600px;
@@ -26,4 +32,6 @@ body {
     border-radius: 10px;
     border: none;
     font-weight: bolder;
+    margin: 20px 0;
+
 }

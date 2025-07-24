@@ -3,11 +3,7 @@ import React from "react";
 function ToDoItem(props) {
   return (
     <li className="Item">
-      <span>
-        <input type="checkbox" className="underline"/>
-        <span>{props.text}</span>
-        </span>
-        <p>...</p>
+        <input type="text" placeholder="Enter your task" className="input"/>
     </li>
   );
 }
