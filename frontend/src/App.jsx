@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ToDoList from "./components/ToDoList";
-import ToDoItem from "./components/ToDoItem";
 import "./App.css";
 
 function App() {
@@ -8,7 +7,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
-    const res = await fetch("http://localhost:8080/tasks");
+    const res = await fetch("http://localhost:5000/tasks");
     const data = await res.json();
     setTasks(data);
   };
@@ -22,7 +21,7 @@ function App() {
 
     if (task.trim() === "") return;
 
-    await fetch("http://localhost:8080/tasks", {
+    await fetch("http://localhost:5000/tasks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: task }),

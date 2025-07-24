@@ -37,8 +37,8 @@ func main() {
     http.HandleFunc("/tasks", tasksHandler)
 
     handler := cors.Default().Handler(http.DefaultServeMux)
-    log.Println("Server started on :8080")
-    log.Fatal(http.ListenAndServe(":8080", handler))
+    log.Println("Server started on :5000")
+    log.Fatal(http.ListenAndServe(":5000", handler))
 }
 
 func tasksHandler(w http.ResponseWriter, r *http.Request) {

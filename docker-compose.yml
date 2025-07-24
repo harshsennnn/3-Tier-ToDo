@@ -2,21 +2,23 @@ version: '3.8'
 
 services:
   
-  # frontend:
-  #   build: ./frontend
-  #   ports:
-  #     - "80:80"
-  #   volumes:
-  #     - ./html:/usr/share/nginx/html
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+    networks:
+      - webnet
 
-  # backend:
-  #   build: ./backend
-  #   ports:
-  #     - "5000:5000"
-  #   environment:
-  #     - DATABASE_URL=mysql://root:example@db/mydb
-  #   depends_on:
-  #     - db
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    networks:
+      - webnet  
   db:
     image: mysql:latest
     container_name: mysql
