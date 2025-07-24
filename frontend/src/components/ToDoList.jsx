@@ -6,7 +6,7 @@ function ToDoList({ tasks }) {
     <div className="ToDoList">
       <ul >
         {tasks.map((task) => (
-          <ToDoItem key={task.id} task={task} />
+        <p key={task.id} >{task.title}</p>
         ))}
       </ul>
     </div>

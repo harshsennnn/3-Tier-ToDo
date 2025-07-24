@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Button from "./components/Button";
 import ToDoList from "./components/ToDoList";
-import Header from "./components/Header";
+import ToDoItem from "./components/ToDoItem";
 import "./App.css";
 
 function App() {
@@ -35,7 +34,6 @@ function App() {
 
   return (
     <div className="todo-container">
-      <Header />
       <input
         type="text"
         value={task}
