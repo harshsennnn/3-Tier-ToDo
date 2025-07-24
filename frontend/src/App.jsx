@@ -17,8 +17,10 @@ function App() {
   useEffect(() => {
     fetchTasks();
   }, []);
-
+  
   const addTask = async () => {
+
+
     if (task.trim() === "") return;
 
     await fetch("http://localhost:8080/tasks", {
@@ -27,8 +29,8 @@ function App() {
       body: JSON.stringify({ title: task }),
     });
 
-    setTask("");      // Clear input
-    fetchTasks();     // Refresh list
+    setTask("");      
+    fetchTasks();     
   };
 
   return (
