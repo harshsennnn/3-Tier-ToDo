@@ -19,7 +19,7 @@ var db *sql.DB
 func main() {
     var err error
 
-    db, err = sql.Open("mysql", "root:secret@tcp(localhost:3306)/todo_db")
+    db, err = sql.Open("mysql", "root:${MYSQL_ROOT_PASSWORD}@tcp(db:3306)/todo_db")
     if err != nil {
         log.Fatal("DB Connection Error:", err)
     }

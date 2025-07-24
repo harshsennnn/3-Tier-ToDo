@@ -6,8 +6,6 @@ services:
     build: ./frontend
     ports:
       - "80:80"
-    volumes:
-      - ./html:/usr/share/nginx/html
     networks:
       - webnet
 
@@ -17,6 +15,8 @@ services:
       - "5000:5000"
     depends_on:
       - db
+    environment:
+      DATABASE_URL: mysql://root:${MYSQL_ROOT_PASSWORD}@db:3306/todo_d
     networks:
       - webnet  
   db:
