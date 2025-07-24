@@ -24,7 +24,6 @@ func main() {
         log.Fatal("DB Connection Error:", err)
     }
 
-    // Auto-create tasks table
     _, err = db.Exec(`
         CREATE TABLE IF NOT EXISTS tasks (
             id INT AUTO_INCREMENT PRIMARY KEY,

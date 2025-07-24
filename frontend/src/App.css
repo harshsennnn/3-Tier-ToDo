@@ -35,3 +35,9 @@ body {
     margin: 20px 0;
 
 }
+
+.ToDoList {
+    width: 500px;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;}

@@ -1,11 +1,16 @@
-import React from 'react'
+import React from "react";
+import ToDoItem from "./ToDoItem";
 
-function ToDoList() {
+function ToDoList({ tasks }) {
   return (
-    <div>
-        <form action=""> </form>
+    <div className="ToDoList">
+      <ul >
+        {tasks.map((task) => (
+          <ToDoItem key={task.id} task={task} />
+        ))}
+      </ul>
     </div>
-  )
+  );
 }
 
-export default ToDoList
+export default ToDoList;

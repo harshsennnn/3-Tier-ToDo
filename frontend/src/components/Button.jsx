@@ -1,9 +1,8 @@
-import React, {useState}from "react";
+import React from "react";
 
-function Button() {
- 
+function Button({ onClick }) {
   return (
-    <button className="Button" onClick={() => alert()}>
+    <button className="Button" onClick={onClick}>
       Add Task
     </button>
   );

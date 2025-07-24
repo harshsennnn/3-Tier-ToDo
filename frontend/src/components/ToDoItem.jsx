@@ -1,9 +1,9 @@
 import React from "react";
 
-function ToDoItem(props) {
+function ToDoItem({ task }) {
   return (
     <li className="Item">
-        <input type="text" placeholder="Enter your task" className="input"/>
+      <span>{task.title}</span>
     </li>
   );
 }
