@@ -6,8 +6,10 @@ import (
     "log"
     "net/http"
     "github.com/rs/cors"
-    "github.com/joho/godotenv"
+    // "github.com/joho/godotenv"
     _ "github.com/go-sql-driver/mysql"
+    "fmt"
+    "os"
 )
 
 type Task struct {
@@ -18,11 +20,12 @@ type Task struct {
 var db *sql.DB
 var err error
 
-func main() {
-    err := godotenv.Load("../.env")
-    if err != nil {
-        log.Fatal("Error loading .env file")
-    }
+func main() { //uncomment these lines if you want to use .env file
+
+    // err := godotenv.Load("../.env")
+    // if err != nil {
+    //     log.Fatal("Error loading .env file")
+    // }
 
     dbPassword := os.Getenv("MYSQL_ROOT_PASSWORD")
     dbName := os.Getenv("MYSQL_DATABASE")

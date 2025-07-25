@@ -16,11 +16,10 @@ services:
     depends_on:
       - db
     environment:
-      - DB_USER=root
-      - DB_PASS=secret
-      - DB_HOST=db
-      - DB_PORT=3306
-      - DB_NAME=todo_db
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_HOST=db
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=todo_db
     networks:
       - webnet  
   db:
