@@ -6,6 +6,7 @@ import (
     "log"
     "net/http"
     "github.com/rs/cors"
+    "github.com/joho/godotenv"
     _ "github.com/go-sql-driver/mysql"
 )
 
@@ -15,21 +16,20 @@ type Task struct {
 }
 
 var db *sql.DB
+var err error
 
 func main() {
-    var err error
-
-    db, err = sql.Open("mysql", "root:${MYSQL_ROOT_PASSWORD}@tcp(db:3306)/todo_db")
+    err := godotenv.Load("../.env")
     if err != nil {
-        log.Fatal("DB Connection Error:", err)
+        log.Fatal("Error loading .env file")
     }
 
-    _, err = db.Exec(`
-        CREATE TABLE IF NOT EXISTS tasks (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            title VARCHAR(255) NOT NULL
-        );
-    `)
+    dbPassword := os.Getenv("MYSQL_ROOT_PASSWORD")
+    dbName := os.Getenv("MYSQL_DATABASE")
+    dbPort := os.Getenv("MYSQL_PORT")
+    dbHost := os.Getenv("MYSQL_HOST")
+
+    db, err = sql.Open("mysql", fmt.Sprintf("root:%s@tcp(%s:%s)/%s", dbPassword, dbHost, dbPort, dbName))
     if err != nil {
         log.Fatal("Table Creation Error:", err)
     }

@@ -16,7 +16,11 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: mysql://root:${MYSQL_ROOT_PASSWORD}@db:3306/todo_d
+      - DB_USER=root
+      - DB_PASS=secret
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=todo_db
     networks:
       - webnet  
   db:
@@ -25,8 +29,9 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todo_db
+
     restart: always
     volumes:
       - db_data:/var/lib/mysql
