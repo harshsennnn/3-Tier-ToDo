@@ -28,8 +28,8 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: todo_db
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=todo_db
 
     restart: always
     volumes:

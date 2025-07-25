@@ -7,7 +7,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
-    const res = await fetch("http://localhost:5000/tasks");
+    const res = await fetch("http://backend:5000/tasks");
     const data = await res.json();
     setTasks(data);
   };
@@ -21,7 +21,7 @@ function App() {
 
     if (task.trim() === "") return;
 
-    await fetch("http://localhost:5000/tasks", {
+    await fetch("http://backend:5000/tasks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: task }),

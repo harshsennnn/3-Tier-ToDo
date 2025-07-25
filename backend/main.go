@@ -6,7 +6,7 @@ import (
     "log"
     "net/http"
     "github.com/rs/cors"
-    // "github.com/joho/godotenv"
+    "github.com/joho/godotenv"
     _ "github.com/go-sql-driver/mysql"
     "fmt"
     "os"
@@ -22,10 +22,10 @@ var err error
 
 func main() { //uncomment these lines if you want to use .env file
 
-    // err := godotenv.Load("../.env")
-    // if err != nil {
-    //     log.Fatal("Error loading .env file")
-    // }
+    err := godotenv.Load("../.env")
+    if err != nil {
+        log.Fatal("Error loading .env file")
+    }
 
     dbPassword := os.Getenv("MYSQL_ROOT_PASSWORD")
     dbName := os.Getenv("MYSQL_DATABASE")
@@ -37,6 +37,20 @@ func main() { //uncomment these lines if you want to use .env file
         log.Fatal("Table Creation Error:", err)
     }
 
+    
+    if err = db.Ping(); err != nil {
+        log.Fatal("MySQL not reachable:", err)
+    }
+
+    
+    _, err = db.Exec(`CREATE TABLE IF NOT EXISTS tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+        title VARCHAR(255) NOT NULL
+    )`)
+    if err != nil {
+        log.Fatal("Failed to create tasks table:", err)
+    }
+    log.Println("Connected to MySQL and ensured tasks table exists")    
     http.HandleFunc("/tasks", tasksHandler)
 
     handler := cors.Default().Handler(http.DefaultServeMux)
