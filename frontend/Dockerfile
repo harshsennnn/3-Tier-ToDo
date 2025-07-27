@@ -1,12 +1,26 @@
-FROM node:24-alpine AS build
+# Base stage
+FROM node:20-alpine AS base
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
+
+# Dev stage
+FROM base AS dev
+# Create non-root user
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+EXPOSE 5173
+CMD ["npm", "run", "dev"]
+
+# Build stage
+FROM base AS build
 RUN npm run build
- 
-# Production Stage
-FROM nginx:stable-alpine AS production
+
+# Production (Served via Nginx)
+FROM nginx:stable-alpine AS prod
 COPY --from=build /app/dist /usr/share/nginx/html
+# permission grant for Nginx to serve files
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup && chown -R appuser:appgroup /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

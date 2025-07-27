@@ -4,8 +4,9 @@ services:
   
   frontend:
     build: ./frontend
+    target: ${TARGET_STAGE}
     ports:
-      - "80:80"
+      - "${FRONTEND_PORT}:${CONTAINER_PORT}"
     networks:
       - webnet
 
