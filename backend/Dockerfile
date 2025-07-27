@@ -12,7 +12,6 @@ WORKDIR /app
 COPY --from=builder /app/main /app/main
 
 # Create non-root user
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-USER appuser
+USER 1000:1000
 
 CMD ["/app/main"]
