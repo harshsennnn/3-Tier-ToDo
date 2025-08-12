@@ -1,4 +1,4 @@
-## 3-Tier Architecture on EC2: Provisioned with Terraform
+# 3-Tier Architecture on EC2: Provisioned with Terraform
 React + Go + MySQL (Docker Compose)
 
 ## Progress so far
@@ -30,3 +30,4 @@ Refer - ` env_example `
 Dev Mode - ` TARGET_STAGE=dev FRONTEND_PORT=5173 CONTAINER_PORT=5173 docker-compose up --build `
 
 Production - ` TARGET_STAGE=dev FRONTEND_PORT=80 CONTAINER_PORT=80 docker-compose up --build `
+
